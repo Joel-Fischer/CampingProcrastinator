@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    animation: floatUp 2s ease-out forwards; /* Add this line */
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50px); /* Adjust distance as needed */
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+input[type="text"] {
+    margin-top: 0; /* Remove margin above input box */
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards 2s; /* Adjust duration, easing function, and delay as needed */
+}
+
+input[type="submit"] {
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards 2s; /* Adjust duration, easing function, and delay as needed */
+}
+
+label {
+    font-family: 'Maiden Orange', cursive;
+    font-size: 4em; /* Adjust size as needed */
+    margin-bottom: 0; /* Remove margin below label */
+}
