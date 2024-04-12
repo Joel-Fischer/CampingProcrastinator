@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const parkSelect = document.querySelector('#park');
             parkSelect.innerHTML = ''; // Clear the current options
 
+            localStorage.setItem(`nps${state}`, JSON.stringify(data));
+
             if (data.data && data.data.length > 0) {
                 for (const park of data.data) {
                     const option = document.createElement('option');
@@ -36,11 +38,20 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#dateForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the form from submitting normally
 
-        const state = document.querySelector('#campingDestination').value;
-        const park = document.querySelector('#park').value;
-        const date = document.querySelector('#campingDate').value;
+        const npsSelector = {
+            state : document.querySelector('#campingDestination').value,
+            park : document.querySelector('#park').value,
+            date : document.querySelector('#campingDate').value
+        };
 
-        fetch(`https://developer.nps.gov/api/v1/tours?stateCode=${state}&parkCode=${park}&date=${date}&api_key=d8T0DNoiiFSQE4ampgcBTk0NuekdlQMlTWSS0BJP`, {
+        // const state = document.querySelector('#campingDestination').value;
+        // const park = document.querySelector('#park').value;
+        // const date = document.querySelector('#campingDate').value;
+
+        // console.log(npsSelector)
+        localStorage.setItem('npsSelector', JSON.stringify(npsSelector))
+
+        fetch(`https://developer.nps.gov/api/v1/tours?stateCode=${npsSelector.state}&parkCode=${npsSelector.park}&date=${npsSelector.date}&api_key=d8T0DNoiiFSQE4ampgcBTk0NuekdlQMlTWSS0BJP`, {
             headers: {
                 'Authorization': 'd8T0DNoiiFSQE4ampgcBTk0NuekdlQMlTWSS0BJP'
             }
@@ -48,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => { 
             // Redirect to the results page
+            console.log()
             window.location.href = 'results.html';
         })
         .catch(error => console.error('Error:', error));
