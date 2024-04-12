@@ -6,35 +6,25 @@
     <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/newstyles.css"> -->
+    <link rel="stylesheet" type="text/css" href="assets\css\resultstyles.css"> 
 
-</head>
-
-<body>
-    <header>
-        <div class="header-text">The Great Outdoors</div> 
-    </header>
-    <div class="dropdown is-active">
-      <div class="dropdown-trigger">
-        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-          <span>Dropdown button</span>
-          <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-        </button>
-      </div>
-      <div class="dropdown-menu" id="dropdown-menu" role="menu">
-        <div class="dropdown-content">
-          <a href="#" class="dropdown-item"> weather </a>
-          <a class="dropdown-item"> amenities </a>
-          <a href="#" class="dropdown-item is-active"> Active dropdown item </a>
-          <a href="#" class="dropdown-item"> Other dropdown item </a>
-          <hr class="dropdown-divider" />
-          <a href="#" class="dropdown-item"> With a divider </a>
-        </div>
-      </div>
-    </div>
+    <body>
+        <header>
+            <div class="header-text">The Great Outdoors</div> 
+        </header>
+        <nav id="nav">
+             <div class="menu-container">
+              <button class="menu-button" id="menu-button">Menu</button>
+              <ul id="dropdown-menu">
+                <li><a href="#">Maps</a></li>
+                <li><a href="#">Amenities</a></li>
+                <li><a href="#">History</a></li>
+              </ul>
+            </div>
+        </nav>
+        
+        <script src="assets/script.js/scripts.js"></script>
+    </body>
+    </html>
     
-    <script src="assets/script.js/scripts.js"></script>
-</body>
-</html>
+    
