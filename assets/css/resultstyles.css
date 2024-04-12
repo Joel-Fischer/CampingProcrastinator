@@ -12,12 +12,22 @@ header {
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background-color: #397204;
     padding: 5px;
     box-sizing: border-box;
     border: 1px solid #dee2e6;
+}
+
+#back {
+    background-color: #51980f;
+    height: 50px;
+    width: 100px; 
+}
+
+a {
+    color: #000;
 }
 
 .header-text {
