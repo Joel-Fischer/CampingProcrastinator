@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#confirmState').addEventListener('click', function(event) {
         const state = document.querySelector('#campingDestination').value;
 
-        fetch(`https://developer.nps.gov/api/v1/parks?stateCode=${state}`, {
+        fetch(`https://developer.nps.gov/api/v1/parks?stateCode=${state}&api_key=d8T0DNoiiFSQE4ampgcBTk0NuekdlQMlTWSS0BJP`, {
             headers: {
                 'Authorization': 'd8T0DNoiiFSQE4ampgcBTk0NuekdlQMlTWSS0BJP'
             }
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const park = document.querySelector('#park').value;
         const date = document.querySelector('#campingDate').value;
 
-        fetch(`https://developer.nps.gov/api/v1/tours?stateCode=${state}&parkCode=${park}&date=${date}`, {
+        fetch(`https://developer.nps.gov/api/v1/tours?stateCode=${state}&parkCode=${park}&date=${date}&api_key=d8T0DNoiiFSQE4ampgcBTk0NuekdlQMlTWSS0BJP`, {
             headers: {
                 'Authorization': 'd8T0DNoiiFSQE4ampgcBTk0NuekdlQMlTWSS0BJP'
             }
