@@ -178,7 +178,8 @@ const buildParkingLots = function (parkingLotsInfo) {
             parkingModalEl.appendChild(thematicbreakEl)
         }
     }
-}function displayWeatherForecast(lat, lon) {
+}
+function displayWeatherForecast(lat, lon) {
     var apiKey ='83d61eed31a0a84a3b429edf288391f6';
     var apiWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=83d61eed31a0a84a3b429edf288391f6`
 
