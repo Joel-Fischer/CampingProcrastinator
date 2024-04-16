@@ -1,3 +1,7 @@
+const alertsModalEl = document.querySelector('#alertsModalText');
+const campgroundsModalEl = document.querySelector('#campgroundsModalText')
+const parkingModalEl = document.querySelector('#parkingModalText')
+
 // Initialization function 
 function init(){
 
@@ -15,6 +19,9 @@ function init(){
         }
     }
 
+    // Set the header text to the park's full name
+    document.querySelector('.header-text').textContent = parkInfo.fullName;
+
     buildPage(parkInfo)
 
     // fetches for additional infomation 
@@ -26,13 +33,13 @@ function init(){
 
 // build out html elements with park information 
 const buildPage = function (parkInfo){
-
     // Todo: build out html elements with dynamic park info 
     // console.log(parkInfo)    
 
     // should include: fullName, description, directionsInfo, weatherInfo, url
     // could include: operatingHours, enteranceFees, images
 
+    
 }
 
 // fetch for park alerts 
@@ -42,6 +49,7 @@ const getAlerts = function (parkCode){
     fetch (apiUrl).then(function(response){
         if(response.ok){
             response.json().then(function (data){
+                localStorage.setItem
                 buildAlertModal(data)
             })
         } else {
@@ -52,18 +60,29 @@ const getAlerts = function (parkCode){
 
 // populate alerts modal with fetched infomation 
 const buildAlertModal = function (alertInfo){
+    //console.log(alertInfo)
 
-    // console.log(alertInfo)
-
-    if(alertInfo.total === 0) {
-
-        // Todo: there are no alerts
-
+    // check if any alerts exist
+    if(alertInfo.total == 0) {
+        alertsModalEl.textContent = 'There are no alerts.'
     } else {
 
-        // Todo: populate alerts modal
-        // Should include for each alert: category, title, description
+        // loop through each alert
+        for (let i=0; i<alertInfo.total; i++){
+            // create elements
+            const titleEl = document.createElement('h1')
+            const textEl = document.createElement('p')
+            const thematicbreakEl = document.createElement('hr')
 
+            // set text content for elements 
+            titleEl.textContent = alertInfo.data[i].title
+            textEl.textContent = alertInfo.data[i].description
+
+            // append elements to modal 
+            alertsModalEl.appendChild(titleEl)
+            alertsModalEl.appendChild(textEl)
+            alertsModalEl.appendChild(thematicbreakEl)
+        }
     }
 }
 
@@ -84,21 +103,38 @@ const getCampgrounds = function (parkCode){
 
 // populate campgrounds modal with fetched information 
 const buildCampgrounds = function(campgroundsInfo){
-
     // console.log(campgroundsInfo)
 
-    if(campgroundsInfo.total === 0){
-
-        // There are no campgrounds 
-
+    // check if any campgrounds exist 
+    if(campgroundsInfo.total == 0){
+        campgroundsModalEl.textContent = "There are no campgrounds."
     } else {
-        
-        // Todo: populate campgrounds modal
-        // should include for each campground: name, description, directionsOverview, url
 
+        // loop through each campground
+        for(let i = 0; i < campgroundsInfo.total; i++){
+            
+            // create elements
+            const nameEl = document.createElement('p')
+            const descriptionEl = document.createElement('p')
+            const directionsEl = document.createElement('p')
+            const urlEl = document.createElement('p')
+            const thematicbreakEl = document.createElement('hr')
+
+            // set text for elements 
+            nameEl.textContent = campgroundsInfo.data[i].name
+            descriptionEl.textContent = campgroundsInfo.data[i].description
+            directionsEl.textContent = campgroundsInfo.data[i].directionsOverview
+            urlEl.textContent = campgroundsInfo.data[i].url
+
+            // append elements to modal
+            campgroundsModalEl.appendChild(nameEl)
+            // campgroundsModalEl.appendChild(descriptionEl)
+            campgroundsModalEl.appendChild(directionsEl)
+            // campgroundsModalEl.appendChild(urlEl)
+            campgroundsModalEl.appendChild(thematicbreakEl)
+        }
     }
 }
-
 
 // fetch for parking information 
 const getParkingLots = function (parkCode){
@@ -117,24 +153,32 @@ const getParkingLots = function (parkCode){
 
 // populate parking lots modal with fetched information 
 const buildParkingLots = function (parkingLotsInfo) {
-
     // console.log(parkingLotsInfo)
 
-    if(parkingLotsInfo.total === 0) {
-
-        // there are no parking lots 
-
+    // check if any parking lots exist 
+    if(parkingLotsInfo.total == 0) {
+        parkingModalEl.textContent = "There are no parking lots."
     } else {
 
-        // Todo: populate parking lots modal 
-        // should include for each parking lot: name, description
-    
+        // loop through each parking lot
+        for (let i = 0; i < parkingLotsInfo.total; i++){
+        
+            // create elements 
+            const nameEl = document.createElement('p')
+            const descriptionEl = document.createElement('p')
+            const thematicbreakEl = document.createElement('hr')
+
+            // set text for elements 
+            nameEl.textContent = parkingLotsInfo.data[i].name
+            descriptionEl.textContent = parkingLotsInfo.data[i].description
+
+            // append elements to modal 
+            parkingModalEl.appendChild(nameEl)
+            parkingModalEl.appendChild(descriptionEl)
+            parkingModalEl.appendChild(thematicbreakEl)
+        }
     }
-}
-
-init();
-
-function displayWeatherForecast(lat, lon) {
+}function displayWeatherForecast(lat, lon) {
     var apiKey ='83d61eed31a0a84a3b429edf288391f6';
     var apiWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=83d61eed31a0a84a3b429edf288391f6`
 
@@ -196,6 +240,7 @@ $('#openModal').click(function() {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    
     // Functions to open and close a modal
     function openModal($el) {
       $el.classList.add('is-active');
@@ -203,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     function closeModal($el) {
       $el.classList.remove('is-active');
-    }
+   }
   
     function closeAllModals() {
       (document.querySelectorAll('.modal') || []).forEach(($modal) => {
@@ -237,3 +282,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  init();
