@@ -15,6 +15,9 @@ function init(){
         }
     }
 
+    // Set the header text to the park's full name
+    document.querySelector('.header-text').textContent = parkInfo.fullName;
+
     buildPage(parkInfo)
 
     // fetches for additional infomation 
@@ -25,13 +28,11 @@ function init(){
 
 // build out html elements with park information 
 const buildPage = function (parkInfo){
-
     // Todo: build out html elements with dynamic park info 
     // console.log(parkInfo)    
 
     // should include: fullName, description, directionsInfo, weatherInfo, url
     // could include: operatingHours, enteranceFees, images
-
 }
 
 // fetch for park alerts 
@@ -41,6 +42,7 @@ const getAlerts = function (parkCode){
     fetch (apiUrl).then(function(response){
         if(response.ok){
             response.json().then(function (data){
+                localStorage.setItem
                 buildAlertModal(data)
             })
         } else {
@@ -51,18 +53,13 @@ const getAlerts = function (parkCode){
 
 // populate alerts modal with fetched infomation 
 const buildAlertModal = function (alertInfo){
-
-    // console.log(alertInfo)
+    //console.log(alertInfo)
 
     if(alertInfo.total === 0) {
-
         // Todo: there are no alerts
-
     } else {
-
         // Todo: populate alerts modal
         // Should include for each alert: category, title, description
-
     }
 }
 
@@ -83,21 +80,15 @@ const getCampgrounds = function (parkCode){
 
 // populate campgrounds modal with fetched information 
 const buildCampgrounds = function(campgroundsInfo){
-
     // console.log(campgroundsInfo)
 
     if(campgroundsInfo.total === 0){
-
         // There are no campgrounds 
-
     } else {
-        
         // Todo: populate campgrounds modal
         // should include for each campground: name, description, directionsOverview, url
-
     }
 }
-
 
 // fetch for parking information 
 const getParkingLots = function (parkCode){
@@ -116,26 +107,20 @@ const getParkingLots = function (parkCode){
 
 // populate parking lots modal with fetched information 
 const buildParkingLots = function (parkingLotsInfo) {
-
     // console.log(parkingLotsInfo)
 
     if(parkingLotsInfo.total === 0) {
-
         // there are no parking lots 
-
     } else {
-
         // Todo: populate parking lots modal 
         // should include for each parking lot: name, description
-    
     }
 }
 
 init();
-
-
-
+// the below js handles the modal functionality
 document.addEventListener('DOMContentLoaded', () => {
+    
     // Functions to open and close a modal
     function openModal($el) {
       $el.classList.add('is-active');
@@ -143,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     function closeModal($el) {
       $el.classList.remove('is-active');
-    }
+   }
   
     function closeAllModals() {
       (document.querySelectorAll('.modal') || []).forEach(($modal) => {
@@ -176,4 +161,4 @@ document.addEventListener('DOMContentLoaded', () => {
         closeAllModals();
       }
     });
-  });
+});
