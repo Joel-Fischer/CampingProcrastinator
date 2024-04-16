@@ -74,3 +74,28 @@ a {
 #dropdown-menu li a:hover {
     color: #000;
 }
+
+#alertsModal {
+    background-color: #a5110c; /* Change to your desired color */
+    color: #000; /* Change to your desired color */
+}
+
+button[data-target="alertsModal"] {
+    background-color: #920702; /* Change to your desired color */
+    color: #000; /* Change to your desired color */
+}
+
+button[data-target="campgroundsModal"] {
+    background-color: #a0c207; /* Change to your desired color */
+    color: #000; /* Change to your desired color */
+}
+
+button[data-target="parkingModal"] {
+    background-color: #0d09ee; /* Change to your desired color */
+    color: #000; /* Change to your desired color */
+}
+
+button[data-target="weatherModal"] {
+    background-color: #0eeed4; /* Change to your desired color */
+    color: #000; /* Change to your desired color */
+}
