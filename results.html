@@ -3,9 +3,7 @@
 <head>
     <title>Camping Destination</title>
     <link href="https://fonts.googleapis.com/css2?family=Maiden+Orange&display=swap" rel="stylesheet">
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
     <link rel="stylesheet" type="text/css" href="assets\css\resultstyles.css"> 
 
     <body>
@@ -13,7 +11,7 @@
             <div class="header-text">The Great Outdoors</div> 
             <button id ="back"><a href="index.html">BACK TO SEARCH</a></button> <!--This button takes us back to the landing page-->
         </header>
-        <nav id="nav">
+        <!--<nav id="nav">
              <div class="menu-container">
               <button class="menu-button" id="menu-button">Menu</button>
               <ul id="dropdown-menu">
@@ -52,6 +50,91 @@
         </section>
         <br>
         
+<!Alerts Modal -->
+<div id="alertsModal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Alerts</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Alerts content goes here -->
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success">Okay</button>
+    </footer>
+  </div>
+</div>
+<button class="js-modal-trigger" data-target="alertsModal">
+  Park alerts
+</button>
+
+<!-- Campgrounds Modal -->
+<div id="campgroundsModal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Campgrounds</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Campgrounds content goes here -->
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success">Okay</button>
+    </footer>
+  </div>
+</div>
+
+<button class="js-modal-trigger" data-target="campgroundsModal">
+  Campgrounds
+</button>
+
+<!-- Parking Modal -->
+<div id="parkingModal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Parking</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Parking content goes here -->
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success">Okay</button>
+    </footer>
+  </div>
+</div>
+</div>
+<button class="js-modal-trigger" data-target="parkingModal">
+  Parking
+</button>
+
+<div id="weatherModal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Weather</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Weather content goes here -->
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success">Okay</button>
+    </footer>
+  </div>
+</div>
+
+<button class="js-modal-trigger" data-target="weatherModal">
+  Weather
+</button>
+  
+
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
         <script src="./assets/scripts/results.js"></script>
     </body>
     </html>
