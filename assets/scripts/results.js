@@ -28,6 +28,7 @@ function init(){
     getAlerts(npsSelector.park)
     getCampgrounds(npsSelector.park)
     getParkingLots(npsSelector.park)
+    displayWeatherForecast(parkInfo.latitude, parkInfo.longitude)
 }
 
 // build out html elements with park information 
@@ -177,7 +178,66 @@ const buildParkingLots = function (parkingLotsInfo) {
             parkingModalEl.appendChild(thematicbreakEl)
         }
     }
+}function displayWeatherForecast(lat, lon) {
+    var apiKey ='83d61eed31a0a84a3b429edf288391f6';
+    var apiWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=83d61eed31a0a84a3b429edf288391f6`
+
+    //Make API request to fetch forecast data
+    $.ajax({
+        url: apiWeatherUrl,
+        data: {
+            lat: lat,
+            lon: lon,
+            appid: apiKey,
+            units: 'imperial'
+        },
+        success: function(response) {
+            //Clear previous forecast content
+            $('#weatherModal .modal-card-body').empty();
+
+            //Extract and display forecast for each day
+            var forecasts = response.list;
+            forecasts.forEach(function(forecast) {
+                var date = new Date(forecast.dt * 1000); //convert timestamp to date
+                var dayOfWeek = date.toLocaleDateString('en-US', {weekday: 'long'});
+                var temperature = forecast.main.temp;
+                var weatherDescription = forecast.weather[0].description;
+
+                //Append forecast data to modal body
+                var forecastItem = `<div>${dayOfWeek}: ${temperature}°F, ${weatherDescription}</div>`;
+                $('#weatherModal .modal-card-body').append(forecastItem);
+            });
+
+        },
+        error: function(){
+            //Handle error
+            $('#weatherModal .modal-card-body').text('Failed to fetch weather data.');
+        }
+    });
 }
+
+//Event listerner for modal open button
+function openModal() {
+
+$('#openModal').click(function() {
+    //Show modal
+    $('#weatherModal').addClass('is-active');
+
+    var lat = 0;
+    var lon = 0;
+
+    //display weather forecast
+    displayWeatherForecast(lat, lon);
+
+});
+
+    //Event listeneer for modal close button
+    $('#weatherModal .delete, #weatherModal .modal-background, #weatherModal .modal-card-foot .button').click(function() {
+        //hide modal
+        $('#weatherModal').removeClass('is-active');
+    });
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
     
