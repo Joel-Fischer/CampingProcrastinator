@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Error:', error));
     });
 
+    
+
     // Handle park confirmation
     document.querySelector('#confirmPark').addEventListener('click', function(event) {
         document.querySelector('#dateForm').style.display = 'block'; // Show the date form
