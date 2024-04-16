@@ -1,3 +1,7 @@
+const alertsModalEl = document.querySelector('#alertsModalText');
+const campgroundsModalEl = document.querySelector('#campgroundsModalText')
+const parkingModalEl = document.querySelector('#parkingModalText')
+
 // Initialization function 
 function init(){
 
@@ -32,6 +36,7 @@ const buildPage = function (parkInfo){
     // should include: fullName, description, directionsInfo, weatherInfo, url
     // could include: operatingHours, enteranceFees, images
 
+    
 }
 
 // fetch for park alerts 
@@ -54,15 +59,27 @@ const buildAlertModal = function (alertInfo){
 
     // console.log(alertInfo)
 
-    if(alertInfo.total === 0) {
-
-        // Todo: there are no alerts
-
+    // check if any alerts exist
+    if(alertInfo.total == 0) {
+        alertsModalEl.textContent = 'There are no alerts.'
     } else {
 
-        // Todo: populate alerts modal
-        // Should include for each alert: category, title, description
+        // loop through each alert
+        for (let i=0; i<alertInfo.total; i++){
+            // create elements
+            const titleEl = document.createElement('h1')
+            const textEl = document.createElement('p')
+            const thematicbreakEl = document.createElement('hr')
 
+            // set text content for elements 
+            titleEl.textContent = alertInfo.data[i].title
+            textEl.textContent = alertInfo.data[i].description
+
+            // append elements to modal 
+            alertsModalEl.appendChild(titleEl)
+            alertsModalEl.appendChild(textEl)
+            alertsModalEl.appendChild(thematicbreakEl)
+        }
     }
 }
 
@@ -86,18 +103,36 @@ const buildCampgrounds = function(campgroundsInfo){
 
     // console.log(campgroundsInfo)
 
-    if(campgroundsInfo.total === 0){
-
-        // There are no campgrounds 
-
+    // check if any campgrounds exist 
+    if(campgroundsInfo.total == 0){
+        campgroundsModalEl.textContent = "There are no campgrounds."
     } else {
-        
-        // Todo: populate campgrounds modal
-        // should include for each campground: name, description, directionsOverview, url
 
+        // loop through each campground
+        for(let i = 0; i < campgroundsInfo.total; i++){
+            
+            // create elements
+            const nameEl = document.createElement('p')
+            const descriptionEl = document.createElement('p')
+            const directionsEl = document.createElement('p')
+            const urlEl = document.createElement('p')
+            const thematicbreakEl = document.createElement('hr')
+
+            // set text for elements 
+            nameEl.textContent = campgroundsInfo.data[i].name
+            descriptionEl.textContent = campgroundsInfo.data[i].description
+            directionsEl.textContent = campgroundsInfo.data[i].directionsOverview
+            urlEl.textContent = campgroundsInfo.data[i].url
+
+            // append elements to modal
+            campgroundsModalEl.appendChild(nameEl)
+            // campgroundsModalEl.appendChild(descriptionEl)
+            campgroundsModalEl.appendChild(directionsEl)
+            // campgroundsModalEl.appendChild(urlEl)
+            campgroundsModalEl.appendChild(thematicbreakEl)
+        }
     }
 }
-
 
 // fetch for parking information 
 const getParkingLots = function (parkCode){
@@ -119,21 +154,30 @@ const buildParkingLots = function (parkingLotsInfo) {
 
     // console.log(parkingLotsInfo)
 
-    if(parkingLotsInfo.total === 0) {
-
-        // there are no parking lots 
-
+    // check if any parking lots exist 
+    if(parkingLotsInfo.total == 0) {
+        parkingModalEl.textContent = "There are no parking lots."
     } else {
 
-        // Todo: populate parking lots modal 
-        // should include for each parking lot: name, description
-    
+        // loop through each parking lot
+        for (let i = 0; i < parkingLotsInfo.total; i++){
+        
+            // create elements 
+            const nameEl = document.createElement('p')
+            const descriptionEl = document.createElement('p')
+            const thematicbreakEl = document.createElement('hr')
+
+            // set text for elements 
+            nameEl.textContent = parkingLotsInfo.data[i].name
+            descriptionEl.textContent = parkingLotsInfo.data[i].description
+
+            // append elements to modal 
+            parkingModalEl.appendChild(nameEl)
+            parkingModalEl.appendChild(descriptionEl)
+            parkingModalEl.appendChild(thematicbreakEl)
+        }
     }
 }
-
-init();
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
     // Functions to open and close a modal
@@ -177,3 +221,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  init();
