@@ -19,6 +19,9 @@ function init(){
         }
     }
 
+    // Set the header text to the park's full name
+    document.querySelector('.header-text').textContent = parkInfo.fullName;
+
     buildPage(parkInfo)
 
     // fetches for additional infomation 
@@ -29,7 +32,6 @@ function init(){
 
 // build out html elements with park information 
 const buildPage = function (parkInfo){
-
     // Todo: build out html elements with dynamic park info 
     // console.log(parkInfo)    
 
@@ -46,6 +48,7 @@ const getAlerts = function (parkCode){
     fetch (apiUrl).then(function(response){
         if(response.ok){
             response.json().then(function (data){
+                localStorage.setItem
                 buildAlertModal(data)
             })
         } else {
@@ -56,8 +59,7 @@ const getAlerts = function (parkCode){
 
 // populate alerts modal with fetched infomation 
 const buildAlertModal = function (alertInfo){
-
-    // console.log(alertInfo)
+    //console.log(alertInfo)
 
     // check if any alerts exist
     if(alertInfo.total == 0) {
@@ -100,7 +102,6 @@ const getCampgrounds = function (parkCode){
 
 // populate campgrounds modal with fetched information 
 const buildCampgrounds = function(campgroundsInfo){
-
     // console.log(campgroundsInfo)
 
     // check if any campgrounds exist 
@@ -151,7 +152,6 @@ const getParkingLots = function (parkCode){
 
 // populate parking lots modal with fetched information 
 const buildParkingLots = function (parkingLotsInfo) {
-
     // console.log(parkingLotsInfo)
 
     // check if any parking lots exist 
@@ -180,6 +180,7 @@ const buildParkingLots = function (parkingLotsInfo) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    
     // Functions to open and close a modal
     function openModal($el) {
       $el.classList.add('is-active');
@@ -187,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     function closeModal($el) {
       $el.classList.remove('is-active');
-    }
+   }
   
     function closeAllModals() {
       (document.querySelectorAll('.modal') || []).forEach(($modal) => {
