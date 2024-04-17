@@ -1,3 +1,7 @@
+@media screen and (max-width: 600px) {
+    /* styles for screens that are 600px or less */
+  }
+
 body {
     background-image: url('../img/camping.jpg');
     background-position: center;
@@ -38,29 +42,46 @@ a {
     margin-bottom: 20px;
 }
 
-
-
-#alertsModal {
-    background-color: #a5110c; /* Change to your desired color */
-    color: #000; /* Change to your desired color */
-}
-
 button[data-target="alertsModal"] {
-    background-color: #920702; /* Change to your desired color */
-    color: #000; /* Change to your desired color */
+    background-color: #920702; 
+    color: #000; 
+    font-size: 20px;
 }
 
 button[data-target="campgroundsModal"] {
-    background-color: #a0c207; /* Change to your desired color */
-    color: #000; /* Change to your desired color */
+    background-color: #a0c207; 
+    color: #000; 
+    font-size: 20px;
 }
 
 button[data-target="parkingModal"] {
-    background-color: #0d09ee; /* Change to your desired color */
-    color: #000; /* Change to your desired color */
+    background-color: #2a288b; 
+    color: #000; 
+    font-size: 20px;
 }
 
 button[data-target="weatherModal"] {
-    background-color: #0eeed4; /* Change to your desired color */
-    color: #000; /* Change to your desired color */
+    background-color: #22bdab; 
+    color: #000; 
+    font-size: 20px;
+}
+
+button[data-target="alertsModal"]:hover {
+    border: 2px solid #FF0000; 
+    box-shadow: 0 0 15px #FF0000, 0 0 5px #FF0000;
+}
+
+button[data-target="campgroundsModal"]:hover {
+    border: 2px solid #c1eb0a; 
+    box-shadow: 0 0 15px #c1eb0a, 0 0 5px #c1eb0a;
+}
+
+button[data-target="parkingModal"]:hover {
+    border: 2px solid #0000ff; 
+    box-shadow: 0 0 15px #0000FF, 0 0 5px #0000FF;
+}
+
+button[data-target="weatherModal"]:hover {
+    border: 2px solid #00ffe1; 
+    box-shadow: 0 0 15px #00ffe1, 0 0 5px #01ffe1;
 }

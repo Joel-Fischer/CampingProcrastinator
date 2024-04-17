@@ -46,6 +46,15 @@ form {
     }
 }
 
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+.explode {
+    animation: explode 0.5s forwards;
+}
+
 input[type="text"] {
     margin-top: 0; /* Remove margin above input box */
     opacity: 0;
@@ -65,8 +74,24 @@ label {
 }
 
 select, input[type="date"] {
-    font-size: 1em; /* Increase font size */
+    font-size: 1.5rem; /* Increase font size */
     padding: 10px; /* Add padding */
     font-family: 'Maiden Orange', cursive;
+    
 }
 
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This makes the container take up the full height of the viewport */
+}
+
+#stateForm, #parkForm, #dateForm {
+    text-align: center; /* This centers the text within the form */
+}
+
+button {
+    margin-top: 0px; /* Adjust this value as needed */
+}
