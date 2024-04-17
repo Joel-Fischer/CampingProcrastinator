@@ -1,6 +1,10 @@
 const alertsModalEl = document.querySelector('#alertsModalText');
 const campgroundsModalEl = document.querySelector('#campgroundsModalText')
 const parkingModalEl = document.querySelector('#parkingModalText')
+const descriptionEl = document.querySelector('#descriptionMessage')
+const directionsEl = document.querySelector('#directionsMessage')
+const weatherEl = document.querySelector('#weatherMessage')
+const urlEl = document.querySelector('#parkURL')
 
 // Initialization function 
 function init(){
@@ -33,13 +37,12 @@ function init(){
 
 // build out html elements with park information 
 const buildPage = function (parkInfo){
-    // Todo: build out html elements with dynamic park info 
-    // console.log(parkInfo)    
 
-    // should include: fullName, description, directionsInfo, weatherInfo, url
-    // could include: operatingHours, enteranceFees, images
-
-    
+    descriptionEl.textContent = parkInfo.description
+    directionsEl.textContent = parkInfo.directionsInfo
+    weatherEl.textContent = parkInfo.weatherInfo
+    urlEl.textContent = parkInfo.fullName
+    urlEl.setAttribute("href", `${parkInfo.url}`) 
 }
 
 // fetch for park alerts 
@@ -116,20 +119,20 @@ const buildCampgrounds = function(campgroundsInfo){
             // create elements
             const nameEl = document.createElement('p')
             const descriptionEl = document.createElement('p')
-            const directionsEl = document.createElement('p')
-            const urlEl = document.createElement('p')
+            const campDirectionsEl = document.createElement('p')
+            // const urlEl = document.createElement('p')
             const thematicbreakEl = document.createElement('hr')
 
             // set text for elements 
             nameEl.textContent = campgroundsInfo.data[i].name
             descriptionEl.textContent = campgroundsInfo.data[i].description
-            directionsEl.textContent = campgroundsInfo.data[i].directionsOverview
-            urlEl.textContent = campgroundsInfo.data[i].url
+            campDirectionsEl.textContent = campgroundsInfo.data[i].directionsOverview
+            // urlEl.textContent = campgroundsInfo.data[i].url
 
             // append elements to modal
             campgroundsModalEl.appendChild(nameEl)
             // campgroundsModalEl.appendChild(descriptionEl)
-            campgroundsModalEl.appendChild(directionsEl)
+            campgroundsModalEl.appendChild(campDirectionsEl)
             // campgroundsModalEl.appendChild(urlEl)
             campgroundsModalEl.appendChild(thematicbreakEl)
         }
