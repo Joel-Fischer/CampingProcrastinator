@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Camping Destination</title>
-    <link href="https://fonts.googleapis.com/css2?family=Maiden+Orange&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Camping Destination</title>
+  <link href="https://fonts.googleapis.com/css2?family=Maiden+Orange&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <link
@@ -10,51 +11,13 @@
       href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
     />
     <link rel="stylesheet" type="text/css" href="assets\css\resultstyles.css"> 
-
+</head>
     <body>
         <header>
             <div id="parkTitle" class="header-text">The Great Outdoors</div> 
             <button id ="back"><a href="index.html">BACK TO SEARCH</a></button> <!--This button takes us back to the landing page-->
         </header>
-        <!--<nav id="nav">
-             <div class="menu-container">
-              <button class="menu-button" id="menu-button">Menu</button>
-              <ul id="dropdown-menu">
-                <li><a href="#">Maps</a></li>
-                <li><a href="#">Amenities</a></li>
-                <li><a href="#">History</a></li>
-              </ul>
-            </div>
-        </nav>
-
-        <section>
-          <div id="general-info" class="general-info">
-            <h1>Park Info</h1>
-          </div>
-        </section>
-        <br>
-
-        <section>
-          <div id="weather" class="weather">
-            <h1>Weather</h1>
-          </div>
-        </section>
-        <br>
-
-        <section>
-          <div id="parking" class="parking">
-            <h1>Parking</h1>
-          </div>
-        </section>
-        <br>
-
-        <section>
-          <div id="maps" class="maps">
-            <h1>Maps</h1>
-          </div>
-        </section>
-        <br>
-        
+            
 <!--Alerts Modal -->
 <div id="alertsModal" class="modal">
   <div class="modal-background"></div>
@@ -99,47 +62,44 @@
 <!-- Parking Modal -->
 <div id="parkingModal" class="modal">
   <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Parking</p>
-      <button class="delete" aria-label="close"></button>
-    </header>
-    <section id="parkingModalText" class="modal-card-body">
+   <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Parking</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+       <section id="parkingModalText" class="modal-card-body">
       <!-- Parking content goes here -->
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success">Okay</button>
-    </footer>
+       </section>
+       <footer class="modal-card-foot">
+         <button class="button is-success">Okay</button>
+       </footer>
   </div>
 </div>
-</div>
+
 <button class="js-modal-trigger" data-target="parkingModal">
   Parking
 </button>
 
 <div id="weatherModal" class="modal">
   <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Weather</p>
-      <button class="delete" aria-label="close"></button>
-    </header>
+    <div class="modal-card">
+      <header class="modal-card-head">
+       <p class="modal-card-title">Current Weather</p>
+       <button class="delete" aria-label="close"></button>
+      </header>
     <section class="modal-card-body">
       <!-- Weather content goes here -->
     </section>
     <footer class="modal-card-foot">
       <button class="button is-success">Okay</button>
     </footer>
-  </div>
+    </div>
 </div>
 
 <button class="js-modal-trigger" data-target="weatherModal">
-  Weather
+  Current Weather
 </button>
-  
-
-  
-</div>
+   
         <script src="./assets/scripts/results.js"></script>
-    </body>
-    </html>
+</body>
+</html>

@@ -178,7 +178,8 @@ const buildParkingLots = function (parkingLotsInfo) {
             parkingModalEl.appendChild(thematicbreakEl)
         }
     }
-}function displayWeatherForecast(lat, lon) {
+}
+function displayWeatherForecast(lat, lon) {
     var apiKey ='83d61eed31a0a84a3b429edf288391f6';
     var apiWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=83d61eed31a0a84a3b429edf288391f6`
 
@@ -192,23 +193,29 @@ const buildParkingLots = function (parkingLotsInfo) {
             units: 'imperial'
         },
         success: function(response) {
-            //Clear previous forecast content
-            $('#weatherModal .modal-card-body').empty();
+//Clear previous forecast content
+$('#weatherModal .modal-card-body').empty();
 
-            //Extract and display forecast for each day
-            var forecasts = response.list;
-            forecasts.forEach(function(forecast) {
-                var date = new Date(forecast.dt * 1000); //convert timestamp to date
-                var dayOfWeek = date.toLocaleDateString('en-US', {weekday: 'long'});
-                var temperature = forecast.main.temp;
-                var weatherDescription = forecast.weather[0].description;
+//Extract and display forecast for each day
+var forecasts = response.list;
+var previousDate;
+forecasts.forEach(function(forecast) {
+    var date = new Date(forecast.dt * 1000); //convert timestamp to date
+    var dayOfWeek = date.toLocaleDateString('en-US', {weekday: 'long'});
+    if (previousDate !== dayOfWeek) {
+        var highTemp = forecast.main.temp_max;
+        var lowTemp = forecast.main.temp_min;
+        var weatherDescription = forecast.weather[0].description;
+        var chanceOfRain = forecast.rain ? forecast.rain['3h'] : 0; // If rain data is not available, set chance of rain to 0
 
-                //Append forecast data to modal body
-                var forecastItem = `<div>${dayOfWeek}: ${temperature}°F, ${weatherDescription}</div>`;
-                $('#weatherModal .modal-card-body').append(forecastItem);
-            });
-
-        },
+        //Append forecast data to modal body
+        var forecastItem = `<div>${dayOfWeek}: High -  ${highTemp}&deg;F, low - ${lowTemp}&deg;F, weather description ${weatherDescription},
+         chance of rain - ${chanceOfRain}%</div>`;
+        $('#weatherModal .modal-card-body').append(forecastItem);
+        previousDate = dayOfWeek;
+    }
+});
+},
         error: function(){
             //Handle error
             $('#weatherModal .modal-card-body').text('Failed to fetch weather data.');
@@ -282,5 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  
 
   init();
