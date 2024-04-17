@@ -1,63 +1,33 @@
 # CampingProcrastinator
 Camping Trip Planner for group project 1
 
-API Keys: 
+NPS API Keys: 
 Uit6YhyGq62iQh0X7UgpMxBqF7fbThcpnnLFEfBS
 d8T0DNoiiFSQE4ampgcBTk0NuekdlQMlTWSS0BJP
 
+Weather API Keys:
+83d61eed31a0a84a3b429edf288391f6
 
+Welcome to Camping Procrastinator!
 
-Items needed to build out for index.html:
-    static elements (title, prompts, etc.)
-    state dropdown using 2 letter abbreviations (needed 2 letter state code query parameter for fetching list of parks)
-    state selection confirmation button 
-    park dropdown (disabled until populated)
-    date picker
-    park & date confirmation button 
+Camping Procrastinator is a camping website designed to provide outdoor enthusiasts with essential information and resources for planning their next adventure in the great outdoors. Whether you're a seasoned camper or a beginner, Camping Procrastinator has got you covered with features using Bulma, weather API, National Park Service API, and jQuery.
 
-    css styling for index elements 
+Features:
+1. User-Friendly Interface: Camping Procrastinator is built with Bulma, a modern CSS framework based on Flexbox. The responsive design ensures that you can access the website seamlessly across different devices, whether you're using a desktop computer, tablet, or smartphone.
 
+2. Real-Time Weather Updates: Planning a camping trip requires knowing what weather conditions to expect. With Camping Procrastinator, you can get real-time weather updates for your desired camping location using a weather API up to a week in advance. Stay informed about temperature, precipitation, wind speed, and more to make the most of your outdoor experience.
 
-items needed to build out javascript for index:
-    event listener and error checking for state confirmation button
-    check local storage if list of parks for state exists
-    fetch to NPS api to grab list of parks in state 
-    save list of parks in local storage 
-    populate park dropdown with list of parks 
+3. Explore National Parks: Camping Procrastinator integrates with the National Park Service API to provide detailed information about national parks across the United States. Discover the parking situations, campgrounds with directions to them, and important visitor information for each park. Whether you're interested in exploring iconic landmarks like Yellowstone or experiencing the serene beauty of the Great Smoky Mountains, Camping Procrastinator helps you plan your visit.
 
-    event listener and error checking for park & date confirmation button 
-    pass state code, park code, & date 
-    switch to results.html
+4. Easy to Follow Directions: Camping Procrastinator has implemented easy to follow direction to acces every national park in each state across the United States from various points. Following which if there is any questions about other information that Camping Procrastinator can not supply then when selecting your park for camping there is a direct link to the Official Park Website.
 
-items needed to build out for results.html:
-    title / name of park
-    background image 
-    back button 
-    url to official park website 
-    paragraph for park description / general info
-    button for opening park alerts modal 
-    button for opening campground information modal 
-    button for opening parking information modal 
-    card for displaying weather forcast 
+GitHub URL:
+https://github.com/Joel-Fischer/CampingProcrastinator
 
-    css styling for results elements 
+Website URL:
+https://joel-fisher.github.io/CampingProcrastinator/
 
-items needed to build out javascript for results:
-    initialization function
-    error checking for determining if park info exists in local storage and loading it 
-    multiple fetch requests grabbing all the park info (park, camp, parking)
-    fetch alert info every page load 
-    fetch weather forcast
-    save park info to local storage if it doesn't exist 
+Screenshots:
+![alt text](Capture.PNG)
 
-    populate page elements with their relevant infomation (title, background, description, url, weather forcast, modals)
-    
-    event listener for alert modal 
-    event listener for campgrounds modal
-    event listener for parking modal 
-    event listener for back button 
-
-Items I'm still unsure about: 
-    how I want to format the data we are saving to local storage since we are making multiple fetch calls per park 
-    whether to put the date picker on the index or results page 
-    can we pass data in a function call when switching pages or do we need to use local storage 
+![alt text](Capture2.PNG)
