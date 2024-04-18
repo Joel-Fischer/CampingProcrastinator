@@ -3,6 +3,7 @@
 <head>
     <title>Camping Destination</title>
     <link href="https://fonts.googleapis.com/css2?family=Maiden+Orange&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
 </head>
 <body>
@@ -64,7 +65,7 @@
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
         </select>
-        <button type="button" id="confirmState">Confirm</button><br>
+        <button class="button is-large is-responsive" type="button" id="confirmState">Confirm</button><br>
         </form>
         
         <form id="parkForm" style="display: none;">
@@ -72,13 +73,13 @@
             <select id="park" name="park">
                 <!-- Your park options here -->
             </select><br>
-            <button type="button" id="confirmPark">Confirm</button><br>
+            <button class="button is-large is-responsive" type="button" id="confirmPark">Confirm</button><br>
         </form>
 
         <form id="dateForm" action="results.html" style="display: none;">
             <label for="campingDate">When would you like to visit?</label><br>
             <input type="date" id="campingDate" name="campingDate"><br>
-            <input type="submit" value="Confirm">
+            <input class="button is-large is-responsive" type="submit" value="Confirm">
         </form>
     </div>
         <script src="./assets/scripts/index.js"></script>
