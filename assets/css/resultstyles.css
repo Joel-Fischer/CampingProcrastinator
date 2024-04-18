@@ -10,8 +10,6 @@ body {
     height: 100vh;
 }
 
-
-
 header {
     position: relative;
     width: 100%;
@@ -50,8 +48,8 @@ article {
 .js-modal-trigger {
     padding-left: 5px;
     padding-right: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 20px;
+    /* margin-right: 10px; */
 }
 
 button[data-target="alertsModal"] {
