@@ -44,6 +44,18 @@ a {
     margin-bottom: 20px;
 }
 
+article {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.js-modal-trigger {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 button[data-target="alertsModal"] {
     background-color: #920702; 
     color: #000; 
@@ -57,7 +69,7 @@ button[data-target="campgroundsModal"] {
 }
 
 button[data-target="parkingModal"] {
-    background-color: #2a288b; 
+    background-color: #2522c9; 
     color: #000; 
     font-size: 20px;
 }

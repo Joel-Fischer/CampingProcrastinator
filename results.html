@@ -3,8 +3,8 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Camping Destination</title>
-  <link href="https://fonts.googleapis.com/css2?family=Maiden+Orange&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Maiden+Orange&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <link
       rel="stylesheet"
@@ -15,8 +15,14 @@
     <body>
         <header>
             <div id="parkTitle" class="header-text">The Great Outdoors</div> 
+<<<<<<< HEAD
+=======
+            <button class = "is-responsive" id ="back"><a href="index.html">BACK TO SEARCH</a></button> <!--This button takes us back to the landing page-->
+>>>>>>> 8cd529c1cd42803ed3a18e50b7640324fb4197d1
         </header>
             
+<hr>
+
 <!--Alerts Modal -->
 <div id="alertsModal" class="modal">
   <div class="modal-background"></div>
@@ -33,8 +39,9 @@
     </footer>
   </div>
 </div>
-<button class="js-modal-trigger" data-target="alertsModal">
-  Park alerts
+
+<button class="js-modal-trigger is-responsive" data-target="alertsModal">
+  Park Alerts
 </button>
 
 <!-- Campgrounds Modal -->
@@ -54,7 +61,7 @@
   </div>
 </div>
 
-<button class="js-modal-trigger" data-target="campgroundsModal">
+<button class="js-modal-trigger is-responsive" data-target="campgroundsModal">
   Campgrounds
 </button>
 
@@ -75,7 +82,7 @@
   </div>
 </div>
 
-<button class="js-modal-trigger" data-target="parkingModal">
+<button class="js-modal-trigger is-responsive" data-target="parkingModal">
   Parking
 </button>
 
@@ -83,7 +90,7 @@
   <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
-       <p class="modal-card-title">Current Weather</p>
+       <p class="modal-card-title">Weather Forecast</p>
        <button class="delete" aria-label="close"></button>
       </header>
     <section class="modal-card-body">
@@ -95,16 +102,18 @@
     </div>
 </div>
 
-<button class="js-modal-trigger" data-target="weatherModal">
-  Current Weather
+<button class="js-modal-trigger is-responsive" data-target="weatherModal">
+  Weather Forecast
 </button>
 
 <button id ="back"><a href="index.html">BACK TO SEARCH</a></button> <!--This button takes us back to the landing page-->
    
+<hr>
+
 <!-- Message for park description -->
-<article class="message">
+<article class="message is-primary">
   <div class="message-header">
-    <p>Description</p>
+    <p>Park Description</p>
   </div>
   <div id="descriptionMessage" class="message-body">
 <!-- Park description is dynamically added here via javascript -->
@@ -113,9 +122,9 @@ Information not available
 </article>
 
 <!-- Message for park directions -->
-<article class="message">
+<article class="message is-success">
   <div class="message-header">
-    <p>Directions</p>
+    <p>Location Information</p>
   </div>
   <div id = "directionsMessage" class="message-body">
   <!-- Park directions are dynamically added here via javascript -->
@@ -124,9 +133,9 @@ Information not available
 </article>
 
 <!-- Message for generic weather info -->
-<article class="message">
+<article class="message is-info">
   <div class="message-header">
-    <p>Generic weather information</p>
+    <p>Weather Information</p>
   </div>
   <div id = "weatherMessage" class="message-body">
   <!-- Generic weather information is dynamically added here via javascript -->
@@ -135,9 +144,9 @@ Information not available
 </article>
 
 <!-- Message for official park website -->
-<article class="message">
+<article class="message is-link">
   <div class="message-header">
-    <p>Official park website</p>
+    <p>Official Park Website</p>
   </div>
   <div class="message-body">
     <a id = "parkURL" href=""></a>
@@ -145,6 +154,6 @@ Information not available
 </article>
 
 
-        <script src="./assets/scripts/results.js"></script>
+  <script src="./assets/scripts/results.js"></script>
 </body>
 </html>
