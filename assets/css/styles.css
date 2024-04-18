@@ -64,6 +64,7 @@ input[type="text"] {
 input[type="submit"] {
     opacity: 0;
     animation: fadeIn 2s ease-out forwards 2s; /* Adjust duration, easing function, and delay as needed */
+    margin-top: 10px;
 }
 
 label {
@@ -71,6 +72,7 @@ label {
     display: flex;
     font-size: 4em; /* Adjust size as needed */
     margin-bottom: 0; /* Remove margin below label */
+    color: black;
 }
 
 select, input[type="date"] {
@@ -93,5 +95,5 @@ select, input[type="date"] {
 }
 
 button {
-    margin-top: 0px; /* Adjust this value as needed */
+    margin-top: 10px; /* Adjust this value as needed */
 }

@@ -28,6 +28,6 @@ Website URL:
 https://joel-fischer.github.io/CampingProcrastinator/
 
 Screenshots:
-![alt text](Capture.PNG)
+![alt text](./assets/img/Capture.PNG)
 
-![alt text](Capture2.PNG)
+![alt text](./assets/img/Capture2.PNG)

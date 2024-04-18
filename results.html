@@ -2,153 +2,151 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Camping Destination</title>
+  <title>Camping Procrastinator - Results</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Maiden+Orange&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <link
-      rel="stylesheet"
-      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-    />
-    <link rel="stylesheet" type="text/css" href="assets\css\resultstyles.css"> 
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="assets\css\resultstyles.css"> 
 </head>
-    <body>
-        <header>
-            <div id="parkTitle" class="header-text">The Great Outdoors</div> 
-        </header>
-            
-<hr>
 
-<!--Alerts Modal -->
-<div id="alertsModal" class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Alerts</p>
-      <button class="delete" aria-label="close"></button>
-    </header>
-    <section id="alertsModalText" class="modal-card-body">
-      <!-- Alerts content goes here -->
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success">Okay</button>
-    </footer>
-  </div>
-</div>
+<body>
+  <header>
+      <div id="parkTitle" class="header-text">The Great Outdoors</div> 
+  </header>
+      
+  <hr>
 
-<button class="js-modal-trigger is-responsive" data-target="alertsModal">
-  Park Alerts
-</button>
-
-<!-- Campgrounds Modal -->
-<div id="campgroundsModal" class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Campgrounds</p>
-      <button class="delete" aria-label="close"></button>
-    </header>
-    <section id="campgroundsModalText" class="modal-card-body">
-      <!-- Campgrounds content goes here -->
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success">Okay</button>
-    </footer>
-  </div>
-</div>
-
-<button class="js-modal-trigger is-responsive" data-target="campgroundsModal">
-  Campgrounds
-</button>
-
-<!-- Parking Modal -->
-<div id="parkingModal" class="modal">
-  <div class="modal-background"></div>
-   <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Parking</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-       <section id="parkingModalText" class="modal-card-body">
-      <!-- Parking content goes here -->
-       </section>
-       <footer class="modal-card-foot">
-         <button class="button is-success">Okay</button>
-       </footer>
-  </div>
-</div>
-
-<button class="js-modal-trigger is-responsive" data-target="parkingModal">
-  Parking
-</button>
-
-<div id="weatherModal" class="modal">
-  <div class="modal-background"></div>
+  <!--Alerts Modal -->
+  <div id="alertsModal" class="modal">
+    <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
-       <p class="modal-card-title">Weather Forecast</p>
-       <button class="delete" aria-label="close"></button>
+        <p class="modal-card-title">Alerts</p>
+        <button class="delete" aria-label="close"></button>
       </header>
-    <section class="modal-card-body">
-      <!-- Weather content goes here -->
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success">Okay</button>
-    </footer>
+      <section id="alertsModalText" class="modal-card-body">
+        <!-- Alerts content goes here -->
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Okay</button>
+      </footer>
     </div>
-</div>
-
-<button class="js-modal-trigger is-responsive" data-target="weatherModal">
-  Weather Forecast
-</button>
-
-<button id ="back"><a href="index.html">BACK TO SEARCH</a></button> <!--This button takes us back to the landing page-->
-   
-<hr>
-
-<!-- Message for park description -->
-<article class="message is-primary">
-  <div class="message-header">
-    <p>Park Description</p>
   </div>
-  <div id="descriptionMessage" class="message-body">
-<!-- Park description is dynamically added here via javascript -->
-Information not available
-  </div>
-</article>
 
-<!-- Message for park directions -->
-<article class="message is-success">
-  <div class="message-header">
-    <p>Location Information</p>
+  <button class="js-modal-trigger is-responsive" data-target="alertsModal">
+    Park Alerts
+  </button>
+
+  <!-- Campgrounds Modal -->
+  <div id="campgroundsModal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Campgrounds</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section id="campgroundsModalText" class="modal-card-body">
+        <!-- Campgrounds content goes here -->
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Okay</button>
+      </footer>
+    </div>
   </div>
-  <div id = "directionsMessage" class="message-body">
-  <!-- Park directions are dynamically added here via javascript -->
+
+  <button class="js-modal-trigger is-responsive" data-target="campgroundsModal">
+    Campgrounds
+  </button>
+
+  <!-- Parking Modal -->
+  <div id="parkingModal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Parking</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section id="parkingModalText" class="modal-card-body">
+        <!-- Parking content goes here -->
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-success">Okay</button>
+        </footer>
+    </div>
+  </div>
+
+  <button class="js-modal-trigger is-responsive" data-target="parkingModal">
+    Parking
+  </button>
+
+  <div id="weatherModal" class="modal">
+    <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+        <p class="modal-card-title">Weather Forecast</p>
+        <button class="delete" aria-label="close"></button>
+        </header>
+      <section class="modal-card-body">
+        <!-- Weather content goes here -->
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Okay</button>
+      </footer>
+      </div>
+  </div>
+
+  <button class="js-modal-trigger is-responsive" data-target="weatherModal">
+    Weather Forecast
+  </button>
+
+  <!--This button takes us back to the landing page-->
+  <button id ="back" class="is-responsive"><a href="index.html">BACK TO SEARCH</a></button> 
+
+  <hr>
+
+  <!-- Message for park description -->
+  <article class="message is-primary">
+    <div class="message-header">
+      <p>Park Description</p>
+    </div>
+    <div id="descriptionMessage" class="message-body">
+  <!-- Park description is dynamically added here via javascript -->
   Information not available
-  </div>
-</article>
+    </div>
+  </article>
 
-<!-- Message for generic weather info -->
-<article class="message is-info">
-  <div class="message-header">
-    <p>Weather Information</p>
-  </div>
-  <div id = "weatherMessage" class="message-body">
-  <!-- Generic weather information is dynamically added here via javascript -->
-  Information not available
-  </div>
-</article>
+  <!-- Message for park directions -->
+  <article class="message is-success">
+    <div class="message-header">
+      <p>Location Information</p>
+    </div>
+    <div id = "directionsMessage" class="message-body">
+    <!-- Park directions are dynamically added here via javascript -->
+    Information not available
+    </div>
+  </article>
 
-<!-- Message for official park website -->
-<article class="message is-link">
-  <div class="message-header">
-    <p>Official Park Website</p>
-  </div>
-  <div class="message-body">
-    <a id = "parkURL" href=""></a>
-  </div>
-</article>
+  <!-- Message for generic weather info -->
+  <article class="message is-info">
+    <div class="message-header">
+      <p>Weather Information</p>
+    </div>
+    <div id = "weatherMessage" class="message-body">
+    <!-- Generic weather information is dynamically added here via javascript -->
+    Information not available
+    </div>
+  </article>
 
+  <!-- Message for official park website -->
+  <article class="message is-link">
+    <div class="message-header">
+      <p>Official Park Website</p>
+    </div>
+    <div class="message-body">
+      <a id = "parkURL" href=""></a>
+    </div>
+  </article>
 
   <script src="./assets/scripts/results.js"></script>
 </body>
