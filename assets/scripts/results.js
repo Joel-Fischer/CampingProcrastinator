@@ -63,11 +63,10 @@ const getAlerts = function (parkCode){
 
 // populate alerts modal with fetched infomation 
 const buildAlertModal = function (alertInfo){
-    //console.log(alertInfo)
 
     // check if any alerts exist
     if(alertInfo.total == 0) {
-        alertsModalEl.textContent = 'There are no alerts.'
+        alertsModalEl.textContent = 'There are no alerts for this location.'
     } else {
 
         // loop through each alert
@@ -106,11 +105,10 @@ const getCampgrounds = function (parkCode){
 
 // populate campgrounds modal with fetched information 
 const buildCampgrounds = function(campgroundsInfo){
-    // console.log(campgroundsInfo)
 
     // check if any campgrounds exist 
     if(campgroundsInfo.total == 0){
-        campgroundsModalEl.textContent = "There are no campgrounds."
+        campgroundsModalEl.textContent = "There are no campgrounds at this location."
     } else {
 
         // loop through each campground
@@ -120,20 +118,17 @@ const buildCampgrounds = function(campgroundsInfo){
             const nameEl = document.createElement('p')
             const descriptionEl = document.createElement('p')
             const campDirectionsEl = document.createElement('p')
-            // const urlEl = document.createElement('p')
             const thematicbreakEl = document.createElement('hr')
 
             // set text for elements 
             nameEl.textContent = campgroundsInfo.data[i].name
             descriptionEl.textContent = campgroundsInfo.data[i].description
             campDirectionsEl.textContent = campgroundsInfo.data[i].directionsOverview
-            // urlEl.textContent = campgroundsInfo.data[i].url
 
             // append elements to modal
             campgroundsModalEl.appendChild(nameEl)
-            // campgroundsModalEl.appendChild(descriptionEl)
+            campgroundsModalEl.appendChild(descriptionEl)
             campgroundsModalEl.appendChild(campDirectionsEl)
-            // campgroundsModalEl.appendChild(urlEl)
             campgroundsModalEl.appendChild(thematicbreakEl)
         }
     }
@@ -156,11 +151,10 @@ const getParkingLots = function (parkCode){
 
 // populate parking lots modal with fetched information 
 const buildParkingLots = function (parkingLotsInfo) {
-    // console.log(parkingLotsInfo)
 
     // check if any parking lots exist 
     if(parkingLotsInfo.total == 0) {
-        parkingModalEl.textContent = "There are no parking lots."
+        parkingModalEl.textContent = "There is no information about parking lots at this location."
     } else {
 
         // loop through each parking lot
@@ -197,29 +191,29 @@ function displayWeatherForecast(lat, lon) {
             units: 'imperial'
         },
         success: function(response) {
-//Clear previous forecast content
-$('#weatherModal .modal-card-body').empty();
+            //Clear previous forecast content
+            $('#weatherModal .modal-card-body').empty();
 
-//Extract and display forecast for each day
-var forecasts = response.list;
-var previousDate;
-forecasts.forEach(function(forecast) {
-    var date = new Date(forecast.dt * 1000); //convert timestamp to date
-    var dayOfWeek = date.toLocaleDateString('en-US', {weekday: 'long'});
-    if (previousDate !== dayOfWeek) {
-        var highTemp = forecast.main.temp_max;
-        var lowTemp = forecast.main.temp_min;
-        var weatherDescription = forecast.weather[0].description;
-        var chanceOfRain = forecast.rain ? forecast.rain['3h'] : 0; // If rain data is not available, set chance of rain to 0
+            //Extract and display forecast for each day
+            var forecasts = response.list;
+            var previousDate;
+            forecasts.forEach(function(forecast) {
+                var date = new Date(forecast.dt * 1000); //convert timestamp to date
+                var dayOfWeek = date.toLocaleDateString('en-US', {weekday: 'long'});
+                if (previousDate !== dayOfWeek) {
+                    var highTemp = forecast.main.temp_max;
+                    var lowTemp = forecast.main.temp_min;
+                    var weatherDescription = forecast.weather[0].description;
+                    var chanceOfRain = forecast.rain ? forecast.rain['3h'] : 0; // If rain data is not available, set chance of rain to 0
 
-        //Append forecast data to modal body
-        var forecastItem = `<div>${dayOfWeek}: High -  ${highTemp}&deg;F, low - ${lowTemp}&deg;F, weather description ${weatherDescription},
-         chance of rain - ${chanceOfRain}%</div>`;
-        $('#weatherModal .modal-card-body').append(forecastItem);
-        previousDate = dayOfWeek;
-    }
-});
-},
+                    //Append forecast data to modal body
+                    var forecastItem = `<div>${dayOfWeek}: High -  ${highTemp}&deg;F, low - ${lowTemp}&deg;F, weather description ${weatherDescription},
+                    chance of rain - ${chanceOfRain}%</div>`;
+                    $('#weatherModal .modal-card-body').append(forecastItem);
+                    previousDate = dayOfWeek;
+                }
+            });
+        },
         error: function(){
             //Handle error
             $('#weatherModal .modal-card-body').text('Failed to fetch weather data.');
@@ -230,17 +224,17 @@ forecasts.forEach(function(forecast) {
 //Event listerner for modal open button
 function openModal() {
 
-$('#openModal').click(function() {
-    //Show modal
-    $('#weatherModal').addClass('is-active');
+    $('#openModal').click(function() {
+        //Show modal
+        $('#weatherModal').addClass('is-active');
 
-    var lat = 0;
-    var lon = 0;
+        var lat = 0;
+        var lon = 0;
 
-    //display weather forecast
-    displayWeatherForecast(lat, lon);
+        //display weather forecast
+        displayWeatherForecast(lat, lon);
 
-});
+    });
 
     //Event listeneer for modal close button
     $('#weatherModal .delete, #weatherModal .modal-background, #weatherModal .modal-card-foot .button').click(function() {
@@ -253,44 +247,44 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Functions to open and close a modal
     function openModal($el) {
-      $el.classList.add('is-active');
+        $el.classList.add('is-active');
     }
-  
+
     function closeModal($el) {
-      $el.classList.remove('is-active');
-   }
-  
-    function closeAllModals() {
-      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-        closeModal($modal);
-      });
+        $el.classList.remove('is-active');
     }
-  
+
+    function closeAllModals() {
+        (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+        closeModal($modal);
+        });
+    }
+
     // Add a click event on buttons to open a specific modal
     (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-      const modal = $trigger.dataset.target;
-      const $target = document.getElementById(modal);
-  
-      $trigger.addEventListener('click', () => {
+        const modal = $trigger.dataset.target;
+        const $target = document.getElementById(modal);
+
+        $trigger.addEventListener('click', () => {
         openModal($target);
-      });
+        });
     });
-  
+
     // Add a click event on various child elements to close the parent modal
     (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
-      const $target = $close.closest('.modal');
-  
-      $close.addEventListener('click', () => {
+        const $target = $close.closest('.modal');
+
+        $close.addEventListener('click', () => {
         closeModal($target);
-      });
+        });
     });
-  
+
     // Add a keyboard event to close all modals
     document.addEventListener('keydown', (event) => {
-      if(event.key === "Escape") {
+        if(event.key === "Escape") {
         closeAllModals();
-      }
+        }
     });
-  });
+});
 
-  init();
+init();

@@ -2,13 +2,17 @@
     /* styles for screens that are 600px or less */
   }
 
-body {
+html {
+    background-color: lightgreen;
+}
+
+/* body {
     background-image: url('../img/camping.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-}
+} */
 
 header {
     position: relative;
@@ -24,14 +28,13 @@ header {
 
 #back {
     background-color: #51980f;
-    height: 34px;
-    width: 150px; 
     float: right;
+    margin-right: 20px;
 }
 
 a {
     color: #000;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .header-text {
@@ -39,7 +42,6 @@ a {
     font-size: 5em;
     color: #000;
     text-align: center;
-    margin-bottom: 20px;
 }
 
 article {
@@ -47,35 +49,28 @@ article {
     margin-right: 20px;
 }
 
-.js-modal-trigger {
+button {
+    color: #000; 
+    font-size: 20px;
     padding-left: 5px;
     padding-right: 5px;
     margin-left: 20px;
-    /* margin-right: 10px; */
 }
 
 button[data-target="alertsModal"] {
     background-color: #920702; 
-    color: #000; 
-    font-size: 20px;
 }
 
 button[data-target="campgroundsModal"] {
     background-color: #a0c207; 
-    color: #000; 
-    font-size: 20px;
 }
 
 button[data-target="parkingModal"] {
     background-color: #2522c9; 
-    color: #000; 
-    font-size: 20px;
 }
 
 button[data-target="weatherModal"] {
     background-color: #22bdab; 
-    color: #000; 
-    font-size: 20px;
 }
 
 button[data-target="alertsModal"]:hover {
