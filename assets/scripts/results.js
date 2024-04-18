@@ -182,6 +182,7 @@ const buildParkingLots = function (parkingLotsInfo) {
         }
     }
 }
+
 function displayWeatherForecast(lat, lon) {
     var apiKey ='83d61eed31a0a84a3b429edf288391f6';
     var apiWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=83d61eed31a0a84a3b429edf288391f6`
@@ -248,7 +249,6 @@ $('#openModal').click(function() {
     });
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
     
     // Functions to open and close a modal
@@ -292,7 +292,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
-  
 
   init();
