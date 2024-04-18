@@ -25,7 +25,7 @@ GitHub URL:
 https://github.com/Joel-Fischer/CampingProcrastinator
 
 Website URL:
-https://joel-fisher.github.io/CampingProcrastinator/
+https://joel-fischer.github.io/CampingProcrastinator/
 
 Screenshots:
 ![alt text](Capture.PNG)
