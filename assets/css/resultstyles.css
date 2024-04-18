@@ -26,12 +26,14 @@ header {
 
 #back {
     background-color: #51980f;
-    height: 50px;
-    width: 100px; 
+    height: 34px;
+    width: 150px; 
+    float: right;
 }
 
 a {
     color: #000;
+    font-size: 15px;
 }
 
 .header-text {
